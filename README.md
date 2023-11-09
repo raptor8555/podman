@@ -138,39 +138,39 @@ su -
 
 When участники *именуют сценарии*, выполняют команды и анализируют их вывод и поведение
 ----
-- Сценарий "Как ...?"
+- Сценарий "Как постмотреть текущую информацию в podman?"
 ```shell
-podman version # TODO: собственные пометки участников для будущего использования в проектах
-podman system info
-podman system df
+podman version # Какая версия podman установлена
+podman system info #  Конфигурация(настройки) podman, какие настройки безопасности, где хранятся image(образы), containe registry по умолчанию и т.д.
+podman system df # Показывает размер image container and local volume.
 ```
 
-- Сценарий "Как ...?"
+- Сценарий "Как залогиниться в conrainer registry?"
 ```shell
-podman logout
-podman login {{ registry-host }}
+podman logout # вылогиниться
+podman login {{ registry-host }} # sudo podman login artifactory.raiffeisen.ru
 ```
 
 - Сценарий "Как найти нужный образ в registry?"
 Залогиниться браузером по адресу {{ registry-host }}, в поиске найти нужный образ и скопировать полное символьное имя (включая сетевой адрес хоста).
 
-- Сценарий "Как ...?"
+- Сценарий "Как затащить к себе образ и посмотреть сколько он весит?"
 ```shell
-podman image pull {{ registry-host }}/{{ os-images-path }}/alpine:3.14
+podman image pull {{ registry-host }}/{{ os-images-path }}/alpine:3.14 # sudo podman image pull artifactory.raiffeisen.ru/ext-devops-community-docker/os-base-images/alpine:3.18 
 podman system df
 ````
 
-- Сценарий "Как ...?"
+- Сценарий "Как запускать контейнер и смотреть о нем информацию?"
 ```shell
-podman container run hello
+podman container run hello # Запустить контейнер из образа hello 
 
-podman container run --name demo -it {{ registry-host }}/{{ os-images-path }}/alpine:3.14
-/# cat /etc/os-release
-/# exit 
+podman container run --name demo -it {{ registry-host }}/{{ os-images-path }}/alpine:3.14 # запустить контейнер с именем demo из образа по пути в интерактивном реэиме
+/# cat /etc/os-release # посмотреть версию файлов ОС
+/# exit # выйти из интерактивного режима 
 ```
 
-- Сценарий "Как ...?"
-```shell
+- Сценарий "Как посмотреть все контейнеры запушенные и остановленные + как удалить контейнер ?"
+```shellыгвщ 
 podman container ls [--all]
 podman container rm demo
 ```
@@ -179,11 +179,10 @@ Then участники отвечают на вопросы
 ----
 - Как назвали сценарии?
 - Успешна ли сконфигурирована система для использования Podman?
-- Откуда взялся образ диска?
-- Сколько места занимает образ?
-- Сколько места занимает контейнер?
-- Какая версия образа скачивается по умолчанию?
-- Какая гостевая команда запускается при запуске контейнера?
+- Откуда взялся образ диска? # Из container registry
+- Сколько места занимает образ? # sudo podman system df- Сколько места занимаетобразы?
+- Какая версия образа скачивается по умолчанию? 
+- Какая гостевая команда запускается при запуске контейнера? sudo podman container run
 
 Жизненный цикл готового образа <sup>30</sup>
 ==============================
