@@ -147,7 +147,7 @@ podman system df # Показывает размер image, container and local 
 
 - Сценарий "Как залогиниться в conrainer registry?"
 ```shell
-podman logout # вылогиниться
+podman logout  {{ registry-host }} # вылогиниться
 podman login {{ registry-host }} # sudo podman login artifactory.raiffeisen.ru
 ```
 
