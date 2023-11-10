@@ -142,7 +142,7 @@ When участники *именуют сценарии*, выполняют к
 ```shell
 podman version # Какая версия podman установлена
 podman system info #  Конфигурация(настройки) podman, какие настройки безопасности, где хранятся image(образы), containe registry по умолчанию и т.д.
-podman system df # Показывает размер image container and local volume.
+podman system df # Показывает размер image, container and local volume. Сколько места занимает вся инфраструктура.
 ```
 
 - Сценарий "Как залогиниться в conrainer registry?"
